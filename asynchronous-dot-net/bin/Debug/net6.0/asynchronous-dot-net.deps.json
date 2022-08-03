@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "asynchronous-dot-net/1.0.0": {
+        "runtime": {
+          "asynchronous-dot-net.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "asynchronous-dot-net/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\playground\async-programming\asynchronous-dot-net\bin\Debug\net6.0\asynchronous-dot-net.exe
+C:\playground\async-programming\asynchronous-dot-net\bin\Debug\net6.0\asynchronous-dot-net.deps.json
+C:\playground\async-programming\asynchronous-dot-net\bin\Debug\net6.0\asynchronous-dot-net.runtimeconfig.json
+C:\playground\async-programming\asynchronous-dot-net\bin\Debug\net6.0\asynchronous-dot-net.dll
+C:\playground\async-programming\asynchronous-dot-net\bin\Debug\net6.0\asynchronous-dot-net.pdb
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.csproj.AssemblyReference.cache
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.GeneratedMSBuildEditorConfig.editorconfig
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.AssemblyInfoInputs.cache
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.AssemblyInfo.cs
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.csproj.CoreCompileInputs.cache
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.dll
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\refint\asynchronous-dot-net.dll
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.pdb
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\asynchronous-dot-net.genruntimeconfig.cache
+C:\playground\async-programming\asynchronous-dot-net\obj\Debug\net6.0\ref\asynchronous-dot-net.dll
