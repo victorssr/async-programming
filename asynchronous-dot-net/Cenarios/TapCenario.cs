@@ -10,15 +10,16 @@ namespace Cenarios;
 
 public class TapCenario
 {
-    private async Task<Registro> BuscarRegistro()
+    private async Task<Registro> BuscarRegistroAsync()
     {
+        Console.WriteLine($"Iniciar busca do registro (Thread: {Thread.CurrentThread.ManagedThreadId})");
         await Task.Delay(1000);
         Registro registro = new() { Valor = 1 };
         Console.WriteLine($"Registro encontrado {JsonSerializer.Serialize(registro)} (Thread: {Thread.CurrentThread.ManagedThreadId})");
         return registro;
     }
 
-    private async Task<Registro> SomarValorDoRegistro(Registro registro, int somaValor)
+    private async Task<Registro> SomarValorDoRegistroAsync(Registro registro, int somaValor)
     {
         await Task.Delay(1000);
         registro.Valor += somaValor;
@@ -26,7 +27,7 @@ public class TapCenario
         return registro;
     }
 
-    private async Task<Notificacao> NotificarCliente(Registro registro)
+    private async Task<Notificacao> NotificarClienteAsync(Registro registro)
     {
         await Task.Delay(1000);
         return new Notificacao()
@@ -35,14 +36,14 @@ public class TapCenario
         };
     }
 
-    public async Task Executar()
+    public async Task ExecutarAsync()
     {
         var somaValor = 1;
         try
         {
-            var registro = await BuscarRegistro();
-            var registroSomado = await SomarValorDoRegistro(registro, somaValor);
-            var notificacao = await NotificarCliente(registroSomado);
+            var registro = await BuscarRegistroAsync();
+            var registroSomado = await SomarValorDoRegistroAsync(registro, somaValor);
+            var notificacao = await NotificarClienteAsync(registroSomado);
 
             Console.WriteLine($"Cliente notificado: {notificacao.Mensagem} (Thread: {Thread.CurrentThread.ManagedThreadId})");
         }

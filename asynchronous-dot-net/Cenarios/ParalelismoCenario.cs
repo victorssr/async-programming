@@ -5,7 +5,7 @@ namespace Cenarios;
 
 public class ParalelismoCenario
 {
-    private async Task<Registro> BuscarRegistro()
+    private async Task<Registro> BuscarRegistroAsync()
     {
         Console.WriteLine($"Iniciar busca do registro (Thread: {Thread.CurrentThread.ManagedThreadId})");
         await Task.Delay(1000);
@@ -25,7 +25,7 @@ public class ParalelismoCenario
         return registro;
     }
 
-    private async Task<string> BuscarEmailDoCliente(int idCliente)
+    private async Task<string> BuscarEmailDoClienteAsync(int idCliente)
     {
         Console.WriteLine($"Iniciando busca pelo email (Thread: {Thread.CurrentThread.ManagedThreadId})");
         await Task.Delay(1000);
@@ -34,7 +34,7 @@ public class ParalelismoCenario
         return email;
     }
 
-    private async Task<Notificacao> NotificarCliente(Registro registro, string email)
+    private async Task<Notificacao> NotificarClienteAsync(Registro registro, string email)
     {
         await Task.Delay(1000);
         return new Notificacao()
@@ -43,18 +43,18 @@ public class ParalelismoCenario
         };
     }
 
-    public async Task Executar()
+    public async Task ExecutarAsync()
     {
         var somaValor = 1;
         try
         {
-            var registro = await BuscarRegistro();
+            var registro = await BuscarRegistroAsync();
             
             var registroSomadoTask = Task.Run(() => SomarValorDoRegistro(registro, somaValor));
-            var emailClienteTask = BuscarEmailDoCliente(registro.IdCliente);
+            var emailClienteTask = BuscarEmailDoClienteAsync(registro.IdCliente);
             await Task.WhenAll(registroSomadoTask, emailClienteTask);
 
-            var notificacao = await NotificarCliente(registroSomadoTask.Result, emailClienteTask.Result);
+            var notificacao = await NotificarClienteAsync(registroSomadoTask.Result, emailClienteTask.Result);
 
             Console.WriteLine($"Cliente notificado: {notificacao.Mensagem} (Thread: {Thread.CurrentThread.ManagedThreadId})");
         }
