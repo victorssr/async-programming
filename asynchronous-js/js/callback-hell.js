@@ -1,11 +1,12 @@
 function buscarRegistro(callback) {
-  callback({
-    valor: 1,
-  });
+  const registro = { valor: 1 };
+  console.log(`Registro encontrado ${JSON.stringify(registro)}`);
+  callback(registro);
 }
 
 function somarValorDoRegistro(registro, novoValor, callback) {
   registro.valor += novoValor;
+  console.log(`Registro somado ${JSON.stringify(registro)}`);
   callback(registro, novoValor);
 }
 
