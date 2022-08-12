@@ -1,12 +1,15 @@
 function buscarRegistro() {
   return new Promise((resolve) => {
-    resolve({ valor: 1 });
+    const registro = { valor: 1 };
+    console.log(`Registro encontrado ${JSON.stringify(registro)}`);
+    resolve(registro);
   });
 }
 
-function somarValorDoRegistro(registro, novoValor) {
+function somarValorDoRegistro(registro, somaValor) {
   return new Promise((resolve) => {
-    registro.valor += novoValor;
+    registro.valor += somaValor;
+    console.log(`Registro somado ${JSON.stringify(registro)}`);
     resolve(registro);
   });
 }
@@ -17,29 +20,24 @@ function notificarCliente(registroSomado) {
   });
 }
 
-async function executar(id) {
-  const novoValor = 2;
+async function executar() {
+  const somaValor = 1;
 
   try {
-    console.log(`Iniciar buscarRegistroComSyscall, id: ${id}`);
+		console.log(`Iniciar buscarRegistroComSyscall()`);
     const registro = await buscarRegistro();
-    console.log(`Registro encontrado ${JSON.stringify(registro)}, id: ${id}`);
-
-    const registroSomado = await somarValorDoRegistro(registro, novoValor);
-    console.log(`Registro somado ${JSON.stringify(registroSomado)}, id: ${id}`);
-
+		console.log(`Iniciar somarValorDoRegistro()`);
+    const registroSomado = await somarValorDoRegistro(registro, somaValor);
     const notificacao = await notificarCliente(registroSomado);
-
-    console.log(`Cliente notificado: ${notificacao.mensagem}, id: ${id}`);
+    console.log(`Cliente notificado: ${notificacao.mensagem}`);
   } catch (erro) {
-    console.log(`Ocorreu um problema: ${erro}, id: ${id}`);
+    console.log(`Ocorreu um problema: ${erro}`);
   }
 }
 
 function chamada() {
-  executar("1");
-  executar("2");
-  console.log("Fim da chamada");
+	executar();
+	console.log('Fim da chamada'); 
 }
 
 chamada();
