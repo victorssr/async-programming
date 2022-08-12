@@ -1,5 +1,5 @@
-const indexErro = 3;
-const excecao = true;
+const indexErro = -1;
+const excecao = false;
 
 function buscarRegistro() {
   return new Promise((resolve, reject) => {
@@ -10,12 +10,14 @@ function buscarRegistro() {
 
       reject(`Erro buscarRegistro()`);
     } else {
-      resolve({ valor: 1 });
+      const registro = { valor: 1 };
+      console.log(`Registro encontrado ${JSON.stringify(registro)}`);
+      resolve(registro);
     }
   });
 }
 
-function somarValorDoRegistro(registro, novoValor) {
+function somarValorDoRegistro(registro, somaValor) {
   return new Promise((resolve, reject) => {
     if (indexErro == 1) {
       if (excecao) {
@@ -24,7 +26,8 @@ function somarValorDoRegistro(registro, novoValor) {
 
       reject(`Erro somarValorDoRegistro()`);
     } else {
-      registro.valor += novoValor;
+      registro.valor += somaValor;
+      console.log(`Registro somado ${JSON.stringify(registro)}`);
       resolve(registro);
     }
   });
@@ -45,20 +48,12 @@ function notificarCliente(registroSomado) {
 }
 
 function executar() {
-  const novoValor = 2;
+  const somaValor = 1;
 
   buscarRegistro()
-    .then((registro) => {
-      console.log(`Registro encontrado ${JSON.stringify(registro)}`);
-      return somarValorDoRegistro(registro, novoValor);
-    })
-    .then((registroSomado) => {
-      console.log(`Registro somado ${JSON.stringify(registroSomado)}`);
-      return notificarCliente(registroSomado);
-    })
-    .then((notificacao) =>
-      console.log(`Cliente notificado: ${notificacao.mensagem}`)
-    )
+    .then((registro) => somarValorDoRegistro(registro, somaValor))
+    .then((registroSomado) => notificarCliente(registroSomado))
+    .then((notificacao) => console.log(`Cliente notificado: ${notificacao.mensagem}`))
     .catch((erro) => console.log(`Ocorreu um problema: ${erro}`));
 }
 
