@@ -2,6 +2,11 @@ using System.Text.Json;
 
 namespace Cenarios;
 
+// ToDo:
+// Execução normal
+// Execução com await na Program.cs após o log
+// Execução sem await Task.Delay()
+
 public class TapCenario
 {
     private async Task<Registro> BuscarRegistro()
