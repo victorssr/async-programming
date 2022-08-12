@@ -23,13 +23,16 @@ function notificarCliente(registroSomado) {
 function executar() {
   const novoValor = 1;
 
-  buscarRegistro().then((registro) => {
-    somarValorDoRegistro(registro, novoValor).then((registroSomado) => {
-      notificarCliente(registroSomado).then((notificacao) => {
-        console.log(`Cliente notificado: ${notificacao.mensagem}`);
-      });
-    });
-  });
+  buscarRegistro()
+    .then((registro) => {
+      return somarValorDoRegistro(registro, novoValor);
+    })
+    .then((registroSomado) => {
+      return notificarCliente(registroSomado);
+    })
+    .then((notificacao) =>
+      console.log(`Cliente notificado: ${notificacao.mensagem}`)
+    );
 }
 
 executar();
