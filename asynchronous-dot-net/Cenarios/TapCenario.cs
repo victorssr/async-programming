@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Modelos;
 
 namespace Cenarios;
 
@@ -50,14 +51,4 @@ public class TapCenario
             Console.WriteLine(erro);
         }
     }
-}
-
-public class Registro
-{
-    public int Valor { get; set; }
-}
-
-public class Notificacao
-{
-    public string Mensagem { get; set; }
 }
