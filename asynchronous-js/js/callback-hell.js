@@ -4,10 +4,10 @@ function buscarRegistro(callback) {
   callback(registro);
 }
 
-function somarValorDoRegistro(registro, novoValor, callback) {
-  registro.valor += novoValor;
+function somarValorDoRegistro(registro, somaValor, callback) {
+  registro.valor += somaValor;
   console.log(`Registro somado ${JSON.stringify(registro)}`);
-  callback(registro, novoValor);
+  callback(registro, somaValor);
 }
 
 function notificarCliente(registroSomado, callback) {
@@ -17,9 +17,9 @@ function notificarCliente(registroSomado, callback) {
 }
 
 function executar() {
-  const novoValor = 1;
+  const somaValor = 1;
   buscarRegistro((registro) => {
-    somarValorDoRegistro(registro, novoValor, (registroSomado) => {
+    somarValorDoRegistro(registro, somaValor, (registroSomado) => {
       notificarCliente(registroSomado, (notificacao) => {
         console.log(`Cliente notificado: ${notificacao.mensagem}`);
       });

@@ -6,9 +6,9 @@ function buscarRegistro() {
   });
 }
 
-function somarValorDoRegistro(registro, novoValor) {
+function somarValorDoRegistro(registro, somaValor) {
   return new Promise((resolve) => {
-    registro.valor += novoValor;
+    registro.valor += somaValor;
     console.log(`Registro somado ${JSON.stringify(registro)}`);
     resolve(registro);
   });
@@ -21,18 +21,12 @@ function notificarCliente(registroSomado) {
 }
 
 function executar() {
-  const novoValor = 1;
+  const somaValor = 1;
 
   buscarRegistro()
-    .then((registro) => {
-      return somarValorDoRegistro(registro, novoValor);
-    })
-    .then((registroSomado) => {
-      return notificarCliente(registroSomado);
-    })
-    .then((notificacao) =>
-      console.log(`Cliente notificado: ${notificacao.mensagem}`)
-    );
+    .then((registro) => somarValorDoRegistro(registro, somaValor))
+    .then((registroSomado) => notificarCliente(registroSomado))
+    .then((notificacao) =>console.log(`Cliente notificado: ${notificacao.mensagem}`));
 }
 
 executar();
